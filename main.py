@@ -36,15 +36,20 @@ class Budget:
         for num in range(1, number_of_categories + 1):
             supply_category = input(f"Supply Category Name {num}: ")
             self.categoryList.append(supply_category)
-
+        time.sleep(1)
         for category in self.categoryList:
             self.category_balance[category] = 0
+
         print("***Categories have been successfully created***")
+        time.sleep(1)
+        print("App loading, Please wait...")
+        time.sleep(2)
         print(f"List and Balance: {self.category_balance}\n")
         self.operation()
 
     # To perform basic operations
     def operation(self):
+        time.sleep(1)
         print("""These are the operations that can be performed\n
             [1] - DEPOSIT TO CATEGORY.
             [2] - WITHDRAWAL FROM CATEGORY.
@@ -54,6 +59,7 @@ class Budget:
             [6] - TOTAL BALANCE.
             [0] - EXIT.
         """)
+        time.sleep(1)
         try:
             action = int(input("Which operation do you want to perform, type 1,2----6: "))
             if action == 1:
@@ -100,7 +106,7 @@ class Budget:
             print(f"You have just deposited {deposit_amount} to {category}")
             print(f"Your current balance is now :  {self.category_balance}")
             try:
-                reply = input("wWould you like to perform another operation? type y/yes or n/no: ".lower())
+                reply = input("Would you like to perform another operation? type y/yes or n/no: ".lower())
                 if reply == "yes" or reply == "y":
                     self.operation()
                 elif reply == "no" or reply == "no":
@@ -158,8 +164,8 @@ class Budget:
                 print(f"{withdrawal_amount} successfully withdrawn from {category}")
                 print(f"Updated List and Balance:  {self.category_balance}")
                 try:
-                    reply = input("would you like to perform another operation? type y/yes or n/no: ".lower())
-                    if reply == "yes" or reply == "y":
+                    reply = input("would you like to perform another operation? type y/yes or no: ".lower())
+                    if reply == "yes" or reply == "yes":
                         self.operation()
                     elif reply == "no" or reply == "no":
                         print("***Thanks for using this app***")
